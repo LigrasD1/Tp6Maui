@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tp6Maui.Views.ListaUsuarioPage"
+             xmlns:viewmodel="clr-namespace:Tp6Maui.ViewModels"
+             xmlns:model="clr-namespace:Tp6Maui.Models"
+             x:DataType="viewmodel:ListaUsuarioViewModel"
+             Title="ListaUsuarioPage">
+    <ScrollView>
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="5" RowDefinitions="*,.1*" RowSpacing="0" Margin="30">
+
+            <RefreshView Grid.ColumnSpan="2" Command="{Binding GetUserCommand}" IsRefreshing="{Binding IsRefreshing}">
+
+                <CollectionView Grid.Row="1"
+                                ItemsSource="{Binding Usuarios}"
+                                SelectionMode="Single"
+                                SelectedItem="{Binding Usuarioseleccionado}"
+                                SelectionChangedCommand="{Binding GoToDetailCommand}">
+                    
+                    <CollectionView.EmptyView>
+                        <StackLayout Padding="100">
+                            <Image Source="not_found.jpg" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </CollectionView.EmptyView>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Usuario">
+                            <Grid 
+                        Margin="10" 
+                        ColumnSpacing="10" 
+                        RowSpacing="10" 
+                        RowDefinitions="Auto">
+
+
+                                <Border>
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="20,20,20,20"/>
+                                    </Border.StrokeShape>
+                                    <Grid ColumnDefinitions=".05*,.15*,.8*" Margin="20">
+                                        <Label Text="{Binding id}" 
+                                       Grid.Column="0"
+   VerticalOptions="Center" 
+   HorizontalOptions="Start"
+   TextColor="White"/>
+
+
+                                        <Label Text="{Binding name}" 
+                                       Grid.Column="1"
+                                       
+   VerticalOptions="Center" 
+   HorizontalOptions="Start"
+   TextColor="White"/>
+
+                                        <Label Text="{Binding email}" 
+                                       Grid.Column="2"
+                                       
+   VerticalOptions="Center" 
+   HorizontalOptions="Start"
+   TextColor="White"/>
+                                    </Grid>
+                                </Border>
+
+
+
+
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+
+                </CollectionView>
+            </RefreshView>
+            <Button Grid.Column="0"
+                    Grid.Row="2"
+Text="Buscar Usuario" 
+WidthRequest="150"
+HorizontalOptions="Start"
+HeightRequest="50"
+Command="{Binding GoToDetailCommand}"/>
+            <Button Grid.Column="1"
+                    Grid.Row="2"
+                    
+Text="Volver" 
+WidthRequest="150"
+HorizontalOptions="End"
+HeightRequest="50"
+Command="{Binding GoBackCommand}"/>
+        </Grid>
+
+
+    </ScrollView>
+</ContentPage>

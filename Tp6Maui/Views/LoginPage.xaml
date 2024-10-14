@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tp6Maui.Views.LoginPage"
+             xmlns:viewmodel="clr-namespace:Tp6Maui.ViewModels"
+             xmlns:model="clr-namespace:Tp6Maui.Models"
+             x:DataType="viewmodel:LoginViewModel"
+             Title="LoginPage">
+
+    <VerticalStackLayout>
+        <Label
+            Text="{Binding Title}"
+            TextColor="White"
+            HorizontalOptions="Center"
+            FontSize="40"
+            FontAttributes="Bold"
+            />
+
+        <Entry
+            Text="{Binding Email}"
+            Keyboard="Text"
+            TextColor="#f0f0ff"
+            Placeholder="Nombre de usuario"
+            HorizontalOptions="Center"
+            WidthRequest="250"
+            Margin="0,25,0,25"
+            />
+        <Entry
+            Text="{Binding Password}"
+            Keyboard="Text"
+            IsPassword="True"
+            TextColor="#f0f0ff"
+            Placeholder="Contraseña"
+            HorizontalOptions="Center"
+            WidthRequest="250"
+            Margin="0,25,0,25"
+            />
+
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="50" RowDefinitions="*,*">
+            <Button
+                Grid.Column="0"
+                Grid.Row="0"
+                Text="Iniciar"
+                TextColor="#f0f0ff"
+                BackgroundColor="#9146ff"
+                Command="{Binding LoginCommand}"
+                HorizontalOptions="End"
+                VerticalOptions="Center"
+                Margin="0,25,0,0"
+/>
+            <Button Grid.Row="0" Grid.Column="1"
+                    TextColor="#f0f0ff"
+                    Text="Cerrar"
+                    BackgroundColor="#9146ff"
+                    HorizontalOptions="Start" VerticalOptions="End"
+                    Command="{Binding CerrarCommand}">
+
+            </Button>
+            <VerticalStackLayout Grid.Row="1"
+                                Grid.Column="1"
+                                 Margin="0,50,0,0">
+                <Label
+                         Text="No tienes una cuenta ?&#10;Registrate aqui"
+                         TextColor="#f0f0ff"
+                         HorizontalOptions="Center"
+     />
+                <Button
+                        TextColor="#f0f0ff"
+                        Text="Registrarse"
+                        BackgroundColor="#9146ff"
+                        WidthRequest="120"
+                        Command="{Binding GoToRegistrarseCommand}"
+                    />
+            </VerticalStackLayout>
+           
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

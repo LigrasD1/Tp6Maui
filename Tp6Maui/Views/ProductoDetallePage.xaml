@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tp6Maui.Views.ProductoDetallePage"
+             xmlns:viewmodel="clr-namespace:Tp6Maui.ViewModels"
+             xmlns:model="clr-namespace:Tp6Maui.Models"
+             x:DataType="viewmodel:ProductoDetalleViewModel"
+             Title="{Binding Title}">
+    <Grid  RowDefinitions="*,*,.15*" ColumnSpacing="0"  RowSpacing="20">
+        <Border Margin="30,0,30,0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="20,20,20,20"/>
+            </Border.StrokeShape>
+            <Grid RowDefinitions="*,*,*,*,*" ColumnDefinitions=".3*,.7*">
+                <Label Text="Nombre" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" Margin="10,0,0,0"/>
+                <Entry Text="{Binding Producto.title}" Grid.Column="1" Grid.Row="0" />
+
+                <Label Margin="10,0,0,0"
+Text="Descripción" 
+Grid.Column="0" 
+Grid.Row="1" 
+VerticalOptions="Center"/>
+
+                <Editor 
+                Text="{Binding Producto.description}" 
+                MaxLength="1000" 
+                Grid.Column="1" 
+                Grid.Row="1" 
+          
+                />
+
+                <Label  Margin="10,0,0,0"
+                    Text="Precio" 
+                    Grid.Column="0" 
+                    Grid.Row="2" VerticalOptions="Center"/>
+                <Entry 
+                Text="{Binding Producto.price}" 
+                Grid.Column="1" 
+                Grid.Row="2" />
+
+                <Label Margin="10,0,0,0"
+                    Text="Categoria" 
+                    Grid.Column="0" 
+                    Grid.Row="3" 
+                    VerticalOptions="Center"/>
+                <Entry 
+                Text="{Binding Producto.category}" 
+                Grid.Column="1" 
+                Grid.Row="3" />
+
+                <Label Margin="10,0,0,0"
+                       Text="Stock"
+                       Grid.Column="0"
+                       Grid.Row="4"
+                       VerticalOptions="Center"                    
+                    />
+                <Entry
+                    Text="{Binding Producto.stock}"
+                    Grid.Column="1"
+                    Grid.Row="4"
+                    />
+
+            </Grid>
+        </Border>
+
+        <Frame CornerRadius="75" Padding="0" HasShadow="False" WidthRequest="300" HeightRequest="300"  Grid.ColumnSpan="2" 
+         Grid.Row="1" Margin="30,0,30,0">
+            <Image 
+            Source="{Binding Producto.image}" 
+            HeightRequest="300" 
+           />
+        </Frame>
+
+        <Border Grid.Row="2" Grid.ColumnSpan="2">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="20,20,0,0"/>
+            </Border.StrokeShape>
+            <Border.Background>
+                <SolidColorBrush Color="#555555"/>
+            </Border.Background>
+            <Grid ColumnDefinitions="*,*" Margin="5,0,5,0">
+                <Button Grid.Column="0"
+                        Text="Borrar producto" 
+                        WidthRequest="90"
+                        HeightRequest="50"
+                        Background="WhiteSmoke"
+                        Command="{Binding DeleteProductoCommand}"/>
+                <Button Grid.Column="1"
+                        Text="Volver" 
+                        WidthRequest="90"
+                        HeightRequest="50"
+                        Background="WhiteSmoke"
+                        Command="{Binding GoBackCommand}"/>
+            </Grid>
+
+        </Border>
+    </Grid>
+</ContentPage>

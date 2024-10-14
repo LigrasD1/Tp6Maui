@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tp6Maui.Views.CarritoPage"
+             xmlns:viewmodel="clr-namespace:Tp6Maui.ViewModels"
+             xmlns:model="clr-namespace:Tp6Maui.Models"
+             x:DataType="viewmodel:CarritoViewModel"
+             Title="{Binding Title}">
+    <Grid ColumnDefinitions="*,.2*" ColumnSpacing="5" RowDefinitions=".93*,.07*"  >
+
+        <RefreshView Grid.ColumnSpan="2" Command="{Binding TraerProductosCommand}" IsRefreshing="{Binding IsRefreshing}" Margin="30,0,30,0">
+
+            <CollectionView Grid.Row="0"
+         ItemsSource="{Binding productoscarito}"
+         SelectionMode="Single"
+         SelectedItem="{Binding Productoseleccionado}"
+         SelectionChangedCommand="{Binding RemoveCommand}">
+                <CollectionView.EmptyView>
+                    <StackLayout Padding="100">
+                        <Image Source="not_found.jpg" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                </CollectionView.EmptyView>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:ProductoCarrito">
+                        <Grid 
+             Margin="10" 
+             ColumnSpacing="10" 
+             RowSpacing="5" 
+             RowDefinitions="Auto,*">
+                            <Border StrokeThickness="1">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="20,20,20,20"/>
+                                </Border.StrokeShape>
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                        <GradientStop Color="#2a2a2a" Offset="0.0" />
+                                        <GradientStop Color="#333333" Offset="0.5" />
+
+                                        <GradientStop Color="#555555" Offset="1.0" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <Grid ColumnDefinitions=".4*,.5*,1*">
+                                    <Image
+                                     HorizontalOptions="Start"
+                                     Grid.Column="0"
+                                     Source="{Binding imagen}"
+                                     WidthRequest="80"
+                                     HeightRequest="80"
+                                     Aspect="AspectFit"/>
+                                    <Label
+                                     Grid.Column="1" 
+                                     Text="{Binding titulo}"
+                                     VerticalOptions="Center"
+                                     HorizontalOptions="Center"
+                                     TextColor="Blue"/>
+                                    <Label
+                                        Grid.Column="2"
+                                        Text="$"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center"
+                                        TextColor="Green"
+                                        />
+                                    <Label
+                                     Grid.Column="2" 
+                                     Text="{Binding total}"
+                                     VerticalOptions="Center"
+                                     HorizontalOptions="End"
+                                     TextColor="Blue"
+                                        Margin="7,0,0,0"/>
+
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+        <Border Grid.Row="2" Grid.ColumnSpan="2">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="20,20,0,0"/>
+            </Border.StrokeShape>
+            <Border.Background>
+                <SolidColorBrush Color="#555555"/>
+            </Border.Background>
+            <Grid ColumnDefinitions="*,*" Margin="5,0,5,0">
+                <Button Grid.Column="0"
+                        Text="Comprar" 
+                        WidthRequest="90"
+                        HeightRequest="50"
+                        Background="WhiteSmoke"
+                        Command="{Binding ComprarCommand}"/>
+                <Button Grid.Column="1"
+                         Text="Volver" 
+                         WidthRequest="90"
+                         HeightRequest="50"
+                         Background="WhiteSmoke"
+                         Command="{Binding GoBackCommand}"/>
+            </Grid>
+
+        </Border>
+
+    </Grid>
+</ContentPage>

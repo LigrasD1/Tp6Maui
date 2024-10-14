@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tp6Maui.Views.PutProductoPage"
+             xmlns:viewmodel="clr-namespace:Tp6Maui.ViewModels"
+             xmlns:model="clr-namespace:Tp6Maui.Models"
+             x:DataType="viewmodel:PutProductoViewModel"
+             Title="{Binding Title}">
+        <Grid RowDefinitions=".1*,.8*,.1*" RowSpacing="5">
+            
+            <Border Grid.Row="0" Margin="20,0,20,0"
+                    HeightRequest="40"
+                    BackgroundColor="White"
+                    HorizontalOptions="Fill">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20,20,20,20"/>
+                </Border.StrokeShape>
+                
+                    <Grid ColumnDefinitions=".9*,.1*" Grid.Row="0" HorizontalOptions="Fill">
+                    <Entry HorizontalOptions="Fill"
+                       Keyboard="Numeric"
+                       HeightRequest="40"
+                       TextColor="Black"
+                       Text="{Binding Id}"
+                       Placeholder="Ingrese Id"
+                       PlaceholderColor="Gray"/>
+                    <Button Grid.Column="1"
+                        HorizontalOptions="End"
+                        Text="Buscar"
+                        Command="{Binding BuscarPorIdCommand}"
+                        CornerRadius="20"
+                        WidthRequest="100"
+                        HeightRequest="40"/>
+                </Grid>
+
+
+            </Border>
+            <Border Grid.Row="1">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20,20,20,20"/>
+                </Border.StrokeShape>
+
+            <Grid RowDefinitions=".1*,.1*,.1*,.1*,.1*,.25*,.25*" ColumnDefinitions=".2*,.8*" >
+                <Label Text="Titulo"
+                     TextColor="Gray"
+                     Margin="20,20,0,0"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                       VerticalOptions="Center"
+                     HorizontalOptions="Center"
+                />
+                    <Entry Text="{Binding ProductoRecibido.title}"
+                      TextColor="Gray"
+                      Margin="20,20,0,0"
+                      Grid.Row="0"
+                      Grid.Column="1"
+                      HeightRequest="10"
+                />
+                    <Label Text="Precio"
+                     TextColor="Gray"
+                     Margin="20,0,0,0"
+                     Grid.Row="1"
+                       VerticalOptions="Center"
+                     Grid.Column="0"
+                     HorizontalOptions="Center"
+                />
+                    <Entry Text="{Binding ProductoRecibido.price}"
+                         TextColor="Gray"
+                         Margin="20,0,0,0"
+                         Grid.Row="1"
+                      HeightRequest="10"
+                         Grid.Column="1"
+                />
+                    <Label Text="Descripcion"
+                         TextColor="Gray"
+                         Margin="20,0,0,0"
+                         Grid.Row="2"
+                        VerticalTextAlignment="Start"
+                         VerticalOptions="Center"
+                         Grid.Column="0"
+                         HorizontalOptions="Center"           
+                />
+                    <Entry Text="{Binding ProductoRecibido.description}"
+                         TextColor="Gray"
+                         Margin="20,0,0,0"
+                         Grid.Row="2"
+                      HeightRequest="10"
+                         Grid.Column="1"
+               />
+                    <Label Text="Categoria"
+                         TextColor="Gray"
+                         Margin="20,0,0,0"
+                         Grid.Row="3"
+                       VerticalOptions="Center"
+                         Grid.Column="0"
+                         HorizontalOptions="Center"           
+                 />
+                    <Entry Text="{Binding ProductoRecibido.category}"
+                         TextColor="Gray"
+                         Margin="20,0,0,0"
+                         Grid.Row="3"
+                      HeightRequest="10"
+                         Grid.Column="1"
+                />
+                <Label Text="Stock"
+                       TextColor="Gray"
+                       Margin="20,0,0,0"
+                       Grid.Row="4"
+                       Grid.Column="0"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"                    
+                    />
+                <Entry Text="{Binding ProductoRecibido.stock}"
+                       TextColor="Gray"
+                       Margin="20,0,0,0"
+                       Grid.Row="4"
+                       Grid.Column="1"
+                       HeightRequest="10"
+                    />
+                <Label
+                        Text="Imagen actual"
+                        TextColor="Gray"
+                        HorizontalOptions="Center"
+                        Grid.Row="5"
+                        Grid.Column="0"
+                        />
+                <Image Source="{Binding ProductoRecibido.image}" HeightRequest="100" Grid.Row="5" Grid.Column="1" />
+                <Label
+    Text="Imagen a modificar"
+    TextColor="Gray"
+    HorizontalOptions="Center"
+    Grid.Row="6"
+    Grid.Column="0"
+    />
+                <Image Source="{Binding ImageSource}" HeightRequest="100" Grid.Row="6" Grid.Column="1" />
+                <Button Grid.Row="7" Text="Buscar Imagen" Command="{Binding BuscarImagenCommand}" Grid.Column="1" Margin="0,0,20,10" WidthRequest="150" HeightRequest="50" HorizontalOptions="End"/>
+
+            </Grid>
+            </Border>
+            <Border Grid.Row="2" Grid.ColumnSpan="2">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20,20,0,0"/>
+                </Border.StrokeShape>
+                <Border.Background>
+                    <SolidColorBrush Color="#555555"/>
+                </Border.Background>
+                
+                <Grid ColumnDefinitions="*,*" Margin="5,0,5,0">
+                <Button Text="Confirmar Producto" Command="{Binding ModificarProductoCommand}" Grid.Column="0"  WidthRequest="150" HeightRequest="50" Background="WhiteSmoke" HorizontalOptions="Center"/>
+
+                <Button Grid.Column="1"
+                        Text="Volver" 
+                        WidthRequest="90"
+                        HeightRequest="50"
+                        Background="WhiteSmoke"
+                        Command="{Binding GoBackCommand}"/>
+                </Grid>
+
+            </Border>
+
+
+
+        </Grid>
+    
+</ContentPage>

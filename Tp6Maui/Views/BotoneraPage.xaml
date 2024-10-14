@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tp6Maui.Views.BotoneraPage"
+             xmlns:viewmodel="clr-namespace:Tp6Maui.ViewModels"
+             xmlns:model="clr-namespace:Tp6Maui.Models"
+             x:DataType="viewmodel:BotoneraViewModel"
+             Title="{Binding Title}">
+    <ScrollView Margin="10">
+        <VerticalStackLayout >
+            <Grid RowSpacing="15"
+               ColumnSpacing="15"
+               ColumnDefinitions="*,*"
+               RowDefinitions="Auto, Auto, Auto, Auto,auto">
+
+                <!-- Botón Productos -->
+                <Button Grid.Row="0" Grid.Column="0"
+                     Text="Productos"
+                     HeightRequest="90" WidthRequest="150"
+                     CornerRadius="45"
+                     HorizontalOptions="Center" VerticalOptions="Center"
+
+                     Command="{Binding GoToProductoListaCommand}">
+                    <Button.ImageSource>
+                        <FontImageSource Size="30" FontFamily="MaterialDesignIcons" Glyph="&#xe825;" />
+                    </Button.ImageSource>
+                </Button>
+
+                <!-- Botón Usuarios -->
+                <Button Grid.Row="0" Grid.Column="1"
+                     Text="Modificar &#10;Producto"
+                     HeightRequest="90" WidthRequest="150"
+                     CornerRadius="45"
+                     HorizontalOptions="Center" VerticalOptions="Center"
+                     Command="{Binding GoToPutProductoCommand}">
+                    <Button.ImageSource>
+                        <FontImageSource Size="30" FontFamily="MaterialDesignIcons" Glyph="&#xf18d;" />
+                    </Button.ImageSource>
+                </Button>
+
+                <!-- Botón Carritos -->
+                <Button Grid.Row="1" Grid.Column="0"
+                     Text="Programador"
+                     HeightRequest="90" WidthRequest="160"
+                     CornerRadius="45"
+                     HorizontalOptions="Center" VerticalOptions="Center"
+                     Command="{Binding GoToAcercaDeCommand}">
+                    <Button.ImageSource>
+                        <FontImageSource Size="30" FontFamily="MaterialDesignIcons" Glyph="&#xe8e0;" />
+                    </Button.ImageSource>
+                </Button>
+
+                <!-- Botón Acerca de page -->
+                <Button Grid.Row="1" Grid.Column="1"
+                     Text="Perfil"
+                     HeightRequest="90" WidthRequest="150"
+                     CornerRadius="45"
+                     HorizontalOptions="Center" VerticalOptions="Center"
+                     Command="{Binding GoToUsuarioPerfilCommand}">
+                    <Button.ImageSource>
+                        <FontImageSource Size="30" FontFamily="MaterialDesignIcons" Glyph="&#xe81c;" />
+                    </Button.ImageSource>
+                </Button>
+
+                <Button Grid.Row="2" Grid.Column="0"
+                         Text="Lista de &#10;usuarios"
+                         HeightRequest="90" WidthRequest="150"
+                         CornerRadius="45"
+                         HorizontalOptions="Center" VerticalOptions="Center"
+                         Command="{Binding GoToUsuarioListaCommand}">
+                    <Button.ImageSource>
+                        <FontImageSource Size="30" FontFamily="MaterialDesignIcons" Glyph="&#xe81d;" />
+                    </Button.ImageSource>
+                </Button>
+
+                <!-- Botón Carrito  -->
+                <Button Grid.Row="2" Grid.Column="1"
+                     Text="Carrito"
+                     HeightRequest="90" WidthRequest="150"  
+                     CornerRadius="45"
+                     HorizontalOptions="Center" VerticalOptions="Center"
+                     Command="{Binding GoToCarritoCommand}">
+                    <Button.ImageSource>
+                        <FontImageSource Size="30" FontFamily="MaterialDesignIcons" Glyph="&#xecbe;" />
+                    </Button.ImageSource>
+                </Button>
+                <!-- Botón Publicar producto -->
+                <Button Grid.Row="3" Grid.Column="0"
+                         Text="Publicar &#10;producto"
+                         HeightRequest="90" WidthRequest="150"
+                         CornerRadius="45"
+                         HorizontalOptions="Center" VerticalOptions="Center"
+                         Command="{Binding GotoPostProductoCommand}">  
+                    <Button.ImageSource>
+                        <FontImageSource Size="30" FontFamily="MaterialDesignIcons" Glyph="&#xe995;" />
+                    </Button.ImageSource>
+                </Button>
+                <!-- Botón Salir -->
+                <Button Grid.Row="4" Grid.Column="0"
+                     Text="Salir"
+                     HeightRequest="90" WidthRequest="150"
+                     CornerRadius="45"
+                     HorizontalOptions="Center" VerticalOptions="Center"
+                     Command="{Binding GoToLoginCommand}">
+                    <Button.ImageSource>
+                        <FontImageSource Size="30" FontFamily="MaterialDesignIcons" Glyph="&#xec08;" />
+                    </Button.ImageSource>
+                </Button>
+                
+                <!-- Boton de cerrar la app -->
+                <Button Grid.Row="4" Grid.Column="1"
+     Text="Cerrar"
+     HeightRequest="90" WidthRequest="150"
+     CornerRadius="45"
+     HorizontalOptions="Center" VerticalOptions="Center"
+     Command="{Binding CerrarCommand}">
+                    <Button.ImageSource>
+                        <FontImageSource Size="30" FontFamily="MaterialDesignIcons" Glyph="&#xec08;" />
+                    </Button.ImageSource>
+                </Button>
+
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

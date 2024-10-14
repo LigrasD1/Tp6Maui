@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tp6Maui.Views.PostProductoPage"
+             xmlns:viewmodel="clr-namespace:Tp6Maui.ViewModels"
+             xmlns:model="clr-namespace:Tp6Maui.Models"
+             x:DataType="viewmodel:PostProductoViewModel"
+             Title="{Binding Title}">
+    <ScrollView>
+        <Grid RowDefinitions="*,*,.15*" ColumnSpacing="0" RowSpacing="20">
+            <Border Margin="30,0,30,0" Grid.Row="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20,20,20,20"/>
+                </Border.StrokeShape>
+                <Grid RowDefinitions="*,*,*,*" ColumnDefinitions=".3*,.7*">
+                    <!-- Campo Nombre -->
+                    <Label Text="Nombre" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" Margin="10,0,0,0"/>
+                    <Entry Text="{Binding Producto.title}" Grid.Column="1" Grid.Row="0" />
+
+                    <!-- Campo Descripción -->
+                    <Label Text="Descripción" Grid.Column="0" Grid.Row="1" VerticalOptions="Center" Margin="10,0,0,0"/>
+                    <Editor Text="{Binding Producto.description}" MaxLength="1000" Grid.Column="1" Grid.Row="1" />
+
+                    <!-- Campo Precio -->
+                    <Label Text="Precio" Grid.Column="0" Grid.Row="2" VerticalOptions="Center" Margin="10,0,0,0"/>
+                    <Entry Text="{Binding Producto.price}" Grid.Column="1" Grid.Row="2" Keyboard="Numeric" />
+
+                    <!-- Campo Categoría -->
+                    <Label Text="Categoría" Grid.Column="0" Grid.Row="3" VerticalOptions="Center" Margin="10,0,0,0"/>
+                    <Entry Text="{Binding Producto.category}" Grid.Column="1" Grid.Row="3" />
+                </Grid>
+            </Border>
+
+            <!-- Imagen del Producto -->
+            <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="20" RowDefinitions="*,*" RowSpacing="0">
+                <Frame CornerRadius="75" Padding="0" HasShadow="False" WidthRequest="300" HeightRequest="300"  Margin="30,0,30,0">
+                    <Image Source="{Binding ModificarImagen}" HeightRequest="300" />
+
+                </Frame>
+                <Button Text="Seleccionar Imagen" Command="{Binding BuscarImagenCommand}"  Grid.Row="0" VerticalOptions="End" HorizontalOptions="Center" WidthRequest="160"
+                    Background="WhiteSmoke" />
+                
+            </Grid>
+
+
+            <!-- Botón para seleccionar la imagen -->
+
+
+            <!-- Botón de Volver -->
+            <Border Grid.Row="2" Grid.ColumnSpan="2">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20,20,0,0"/>
+                </Border.StrokeShape>
+                <Border.Background>
+                    <SolidColorBrush Color="#555555"/>
+                </Border.Background>
+                <Grid ColumnDefinitions="*,*" Margin="5,0,5,0">
+
+                    <Button Text="Cargar Producto" Command="{Binding MandarProductoCommand}"  Grid.Column="0" VerticalOptions="End" HorizontalOptions="Center" 
+HeightRequest="50"
+Background="WhiteSmoke" />
+                    <Button Grid.Column="1"
+                Text="Volver" 
+                WidthRequest="90"
+                HeightRequest="50"
+                Background="WhiteSmoke"
+                Command="{Binding GoBackCommand}"/>
+                </Grid>
+
+            </Border>
+        </Grid>
+    </ScrollView>
+    
+</ContentPage>
