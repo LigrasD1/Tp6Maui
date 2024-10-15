@@ -70,13 +70,7 @@
 
                 </CollectionView>
             </RefreshView>
-            <Button Grid.Column="0"
-                    Grid.Row="2"
-Text="Buscar Usuario" 
-WidthRequest="150"
-HorizontalOptions="Start"
-HeightRequest="50"
-Command="{Binding GoToDetailCommand}"/>
+            
             <Button Grid.Column="1"
                     Grid.Row="2"
                     
