@@ -8,4 +8,15 @@ public partial class CarritoPage : ContentPage
 		InitializeComponent();
 		BindingContext = new CarritoViewModel();
 	}
+    protected async override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        var vm = BindingContext as CarritoViewModel;
+
+        if (vm != null)
+        {
+            await vm.TraerProductosCommand  .ExecuteAsync(null);
+        }
+    }
 }

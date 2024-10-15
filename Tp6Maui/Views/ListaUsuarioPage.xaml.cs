@@ -11,5 +11,16 @@ public partial class ListaUsuarioPage : ContentPage
 		InitializeComponent();
 		BindingContext = new ListaUsuarioViewModel();
 	}
-    
+    protected async override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        var vm = BindingContext as ListaUsuarioViewModel;
+
+        if (vm != null)
+        {
+            await vm.GetUserCommand.ExecuteAsync(null);
+        }
+    }
+
 }

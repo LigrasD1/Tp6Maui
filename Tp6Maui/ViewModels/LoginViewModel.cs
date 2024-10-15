@@ -86,6 +86,8 @@ namespace Tp6Maui.ViewModels
                 Application.Current.Quit();
             }
         }
+        
+    
 
-    }
+}
 }
