@@ -68,7 +68,7 @@ namespace Tp6Maui.Services
             }
             else
             {
-                throw new HttpRequestException($"Error en la solicitud: {response.StatusCode}");
+                return default;
             }
         }
 

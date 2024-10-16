@@ -41,6 +41,9 @@ namespace Tp6Maui.ViewModels
                         Transports.EmailUsuario = response.email;
                         Transports.Pone = response.phone;
                         Transports.Name = response.name;
+                        Transports.rol=response.rol;
+                        Transports.IdRol=response.idrol;
+
                         IsBusy = false;
 
                         await Application.Current.MainPage.Navigation.PushAsync(new BotoneraPage());

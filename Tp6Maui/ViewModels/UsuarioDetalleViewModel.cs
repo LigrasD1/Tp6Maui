@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tp6Maui.Models;
 using Tp6Maui.Services;
+using Tp6Maui.Utils;
 
 namespace Tp6Maui.ViewModels
 {
@@ -15,10 +16,14 @@ namespace Tp6Maui.ViewModels
         [ObservableProperty]
         Usuario _usuario;
         IUsuarioService _Servicio;
+
+        [ObservableProperty]
+        bool _Permiso;
         public UsuarioDetalleViewModel()
         {
             Title = "Detalle del usuario";
             _Servicio = new UsuarioService();
+            if (Transports.IdRol == 2) Permiso = false;
         }
 
         [RelayCommand]

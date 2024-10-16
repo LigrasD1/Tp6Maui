@@ -66,6 +66,7 @@
                          Text="Lista de &#10;usuarios"
                          HeightRequest="90" WidthRequest="150"
                          CornerRadius="45"
+                        IsVisible="{Binding Permiso}"
                          HorizontalOptions="Center" VerticalOptions="Center"
                          Command="{Binding GoToUsuarioListaCommand}">
                     <Button.ImageSource>

@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,12 @@ namespace Tp6Maui.ViewModels
 {
     public partial class BotoneraViewModel : BaseViewModel
     {
+        [ObservableProperty]
+        bool _Permiso;
         public BotoneraViewModel()
         {
             Title = "Mercadito";
+            if (Transports.IdRol == 2) Permiso = false;
         }
 
         [RelayCommand]

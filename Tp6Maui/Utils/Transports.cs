@@ -13,6 +13,8 @@ namespace Tp6Maui.Utils
         public static string? EmailUsuario { get; set; } = string.Empty;
         public static string? Name { get; set; } = string.Empty;
         public static string? Pone { get; set; } = string.Empty;
+        public static string? rol { get; set; } = string.Empty;
+        public static int? IdRol { get; set; }
 
     }
 }

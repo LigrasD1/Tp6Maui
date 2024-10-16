@@ -30,7 +30,8 @@ namespace Tp6Maui.ViewModels
                 try
                 {
                     IsBusy = true;
-                    var response=_Servicio.RealizarRegistro(_NuevoUsuario);
+                    NuevoUsuario.rol     = 2;
+                    var response=_Servicio.RealizarRegistro(NuevoUsuario);
                     if(response !=null)
                     {
                         IsBusy = false;

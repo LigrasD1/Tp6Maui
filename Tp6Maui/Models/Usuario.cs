@@ -13,5 +13,7 @@ namespace Tp6Maui.Models
         public string? username { get; set; }
         public string? name { get; set; }
         public string? phone { get; set; }
+        public string? rol { get; set; }
+        public int? idrol { get; set; }
     }
 }

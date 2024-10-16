@@ -60,6 +60,7 @@ namespace Tp6Maui.ViewModels
                 }
 
             }
+            Usuarioseleccionado = null;
         }
         [RelayCommand]
         public async Task GoToDetail()

@@ -82,6 +82,7 @@ VerticalOptions="Center"/>
                 <Button Grid.Column="0"
                         Text="Borrar producto" 
                         WidthRequest="90"
+                        IsVisible="{Binding Permiso}"
                         HeightRequest="50"
                         Background="WhiteSmoke"
                         Command="{Binding DeleteProductoCommand}"/>

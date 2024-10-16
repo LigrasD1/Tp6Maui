@@ -16,10 +16,13 @@ namespace Tp6Maui.ViewModels
         [ObservableProperty]
         Producto producto;
         IProductoServices _servicio;
+        [ObservableProperty]
+        bool _Permiso;
         public ProductoDetalleViewModel()
         {
             Title = "Detalle del producto";
             _servicio = new ProductoServices();
+            if (Transports.IdRol == 2) _Permiso = false;
         }
         [RelayCommand]
         public async Task DeleteProducto()

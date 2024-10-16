@@ -13,7 +13,7 @@
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="20,20,20,20"/>
             </Border.StrokeShape>
-            <Grid RowDefinitions=".2*,.2*,.2*,.2*,.2*" RowSpacing="0" ColumnDefinitions=".2*,.8*" >
+            <Grid RowDefinitions=".2*,.2*,.2*,.2*,.2*,.2*" RowSpacing="0" ColumnDefinitions=".2*,.8*" >
 
                 <Label Text="IDUsuario"
                  TextColor="Gray"
@@ -95,7 +95,23 @@
                  HeightRequest="10"
                   IsReadOnly="True"
                  Grid.Column="1"
-           />
+             />
+                <Label Text="Rol"
+                         TextColor="Gray"
+                         Margin="20,0,0,0"
+                         Grid.Row="5"
+                         VerticalOptions="Center"
+                         Grid.Column="0"
+                         HorizontalOptions="Center"           
+                 />
+                <Entry Text="{Binding Usuario.rol}"
+                     TextColor="Gray"
+                     Margin="20,0,20,0"
+                     Grid.Row="5"
+                     HeightRequest="10"
+                      IsReadOnly="True"
+                     Grid.Column="1"
+                 />
 
 
 
@@ -111,8 +127,9 @@
             <Grid ColumnDefinitions="*,*" Margin="5,0,5,0">
                 <Button
                     Grid.Column="0"
+                    IsVisible="{Binding Permiso}"
                     Text="Borrar Usuario"
-                    WidthRequest="90"
+                    WidthRequest="120"
                     HeightRequest="50"
                     Background="WhiteSmoke"
                     Command="{Binding DeleteUsuarioCommand}"
