@@ -6,10 +6,10 @@
              xmlns:model="clr-namespace:Tp6Maui.Models"
              x:DataType="viewmodel:PutProductoViewModel"
              Title="{Binding Title}">
-        <Grid RowDefinitions=".1*,.8*,.1*" RowSpacing="5">
+        <Grid RowDefinitions=".1*,.8*,.1*" RowSpacing="5" Margin="10">
             
             <Border Grid.Row="0" Margin="20,0,20,0"
-                    HeightRequest="40"
+                    HeightRequest="49"
                     BackgroundColor="White"
                     HorizontalOptions="Fill">
                 <Border.StrokeShape>
@@ -19,7 +19,7 @@
                     <Grid ColumnDefinitions=".9*,.1*" Grid.Row="0" HorizontalOptions="Fill">
                     <Entry HorizontalOptions="Fill"
                        Keyboard="Numeric"
-                       HeightRequest="40"
+                       HeightRequest="30"
                        TextColor="Black"
                        Text="{Binding Id}"
                        Placeholder="Ingrese Id"
@@ -43,7 +43,7 @@
             <Grid RowDefinitions=".1*,.1*,.1*,.1*,.1*,.25*,.25*" ColumnDefinitions=".2*,.8*" >
                 <Label Text="Titulo"
                      TextColor="Gray"
-                     Margin="20,20,0,0"
+                     Margin="20,0,0,0"
                      Grid.Row="0"
                      Grid.Column="0"
                        VerticalOptions="Center"
@@ -51,7 +51,7 @@
                 />
                     <Entry Text="{Binding ProductoRecibido.title}"
                       TextColor="Gray"
-                      Margin="20,20,0,0"
+                      Margin="20,0,0,0"
                       Grid.Row="0"
                       Grid.Column="1"
                       HeightRequest="10"
@@ -121,6 +121,7 @@
                         Text="Imagen actual"
                         TextColor="Gray"
                         HorizontalOptions="Center"
+                        VerticalOptions="Center"
                         Grid.Row="5"
                         Grid.Column="0"
                         />
@@ -129,11 +130,11 @@
     Text="Imagen a modificar"
     TextColor="Gray"
     HorizontalOptions="Center"
+                    VerticalOptions="Center"
     Grid.Row="6"
     Grid.Column="0"
     />
                 <Image Source="{Binding ImageSource}" HeightRequest="100" Grid.Row="6" Grid.Column="1" />
-                <Button Grid.Row="7" Text="Buscar Imagen" Command="{Binding BuscarImagenCommand}" Grid.Column="1" Margin="0,0,20,10" WidthRequest="150" HeightRequest="50" HorizontalOptions="End"/>
 
             </Grid>
             </Border>
@@ -142,17 +143,19 @@
                     <RoundRectangle CornerRadius="20,20,0,0"/>
                 </Border.StrokeShape>
                 <Border.Background>
-                    <SolidColorBrush Color="#555555"/>
+                    <SolidColorBrush Color="White"/>
                 </Border.Background>
                 
                 <Grid ColumnDefinitions="*,*" Margin="5,0,5,0">
-                <Button Text="Confirmar Producto" Command="{Binding ModificarProductoCommand}" Grid.Column="0"  WidthRequest="150" HeightRequest="50" Background="WhiteSmoke" HorizontalOptions="Center"/>
-
+                <Button Margin="10,0,0,0" Text="Confirmar Producto" Command="{Binding ModificarProductoCommand}" Grid.Column="0"  WidthRequest="160" HeightRequest="50" Background="Gray" HorizontalOptions="Start"/>
+                <Button Grid.ColumnSpan="2" WidthRequest="150" HeightRequest="50" Text="Buscar Imagen" Command="{Binding BuscarImagenCommand}" Background="Gray"/>
                 <Button Grid.Column="1"
                         Text="Volver" 
                         WidthRequest="90"
                         HeightRequest="50"
-                        Background="WhiteSmoke"
+                        Background="Gray"
+                        HorizontalOptions="End"
+                        Margin="0,0,10,0"
                         Command="{Binding GoBackCommand}"/>
                 </Grid>
 

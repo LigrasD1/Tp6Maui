@@ -24,6 +24,7 @@ namespace Tp6Maui.ViewModels
             Title = "Detalle del usuario";
             _Servicio = new UsuarioService();
             if (Transports.IdRol == 2) Permiso = false;
+            else Permiso = true;
         }
 
         [RelayCommand]

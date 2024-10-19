@@ -41,7 +41,7 @@
                                        Grid.Column="0"
    VerticalOptions="Center" 
    HorizontalOptions="Start"
-   TextColor="White"/>
+   TextColor="Black"/>
 
 
                                         <Label Text="{Binding name}" 
@@ -49,14 +49,14 @@
                                        
    VerticalOptions="Center" 
    HorizontalOptions="Start"
-   TextColor="White"/>
+   TextColor="black"/>
 
                                         <Label Text="{Binding email}" 
                                        Grid.Column="2"
                                        
    VerticalOptions="Center" 
    HorizontalOptions="Start"
-   TextColor="White"/>
+   TextColor="black"/>
                                     </Grid>
                                 </Border>
 

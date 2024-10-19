@@ -38,7 +38,7 @@
 
                 </Frame>
                 <Button Text="Seleccionar Imagen" Command="{Binding BuscarImagenCommand}"  Grid.Row="0" VerticalOptions="End" HorizontalOptions="Center" WidthRequest="160"
-                    Background="WhiteSmoke" />
+                    Background="Gray" />
                 
             </Grid>
 
@@ -52,18 +52,18 @@
                     <RoundRectangle CornerRadius="20,20,0,0"/>
                 </Border.StrokeShape>
                 <Border.Background>
-                    <SolidColorBrush Color="#555555"/>
+                    <SolidColorBrush Color="White"/>
                 </Border.Background>
                 <Grid ColumnDefinitions="*,*" Margin="5,0,5,0">
 
                     <Button Text="Cargar Producto" Command="{Binding MandarProductoCommand}"  Grid.Column="0" VerticalOptions="End" HorizontalOptions="Center" 
 HeightRequest="50"
-Background="WhiteSmoke" />
+Background="Green" />
                     <Button Grid.Column="1"
                 Text="Volver" 
                 WidthRequest="90"
                 HeightRequest="50"
-                Background="WhiteSmoke"
+                Background="Gray"
                 Command="{Binding GoBackCommand}"/>
                 </Grid>
 

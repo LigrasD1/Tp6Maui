@@ -16,7 +16,7 @@ public partial class ListaProductoPage : ContentPage
 
         if (vm != null)
         {
-            await vm.ObtenerProductosCommand.ExecuteAsync(null);
+            await vm.RefrescarProductosCommand.ExecuteAsync(null);
         }
     }
 }

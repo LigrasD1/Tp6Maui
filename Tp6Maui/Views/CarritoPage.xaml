@@ -32,14 +32,7 @@
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="20,20,20,20"/>
                                 </Border.StrokeShape>
-                                <Border.Background>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                        <GradientStop Color="#2a2a2a" Offset="0.0" />
-                                        <GradientStop Color="#333333" Offset="0.5" />
-
-                                        <GradientStop Color="#555555" Offset="1.0" />
-                                    </LinearGradientBrush>
-                                </Border.Background>
+                                
                                 <Grid ColumnDefinitions=".4*,.5*,1*">
                                     <Image
                                      HorizontalOptions="Start"
@@ -53,7 +46,7 @@
                                      Text="{Binding titulo}"
                                      VerticalOptions="Center"
                                      HorizontalOptions="Center"
-                                     TextColor="Blue"/>
+                                     TextColor="black"/>
                                     <Label
                                         Grid.Column="2"
                                         Text="$"
@@ -81,20 +74,20 @@
                 <RoundRectangle CornerRadius="20,20,0,0"/>
             </Border.StrokeShape>
             <Border.Background>
-                <SolidColorBrush Color="#555555"/>
+                <SolidColorBrush Color="White"/>
             </Border.Background>
             <Grid ColumnDefinitions="*,*" Margin="5,0,5,0">
                 <Button Grid.Column="0"
                         Text="Comprar" 
                         WidthRequest="90"
                         HeightRequest="50"
-                        Background="WhiteSmoke"
+                        Background="Green"
                         Command="{Binding ComprarCommand}"/>
                 <Button Grid.Column="1"
                          Text="Volver" 
                          WidthRequest="90"
                          HeightRequest="50"
-                         Background="WhiteSmoke"
+                         Background="Gray"
                          Command="{Binding GoBackCommand}"/>
             </Grid>
 

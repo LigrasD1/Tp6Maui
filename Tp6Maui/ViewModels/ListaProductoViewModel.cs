@@ -20,6 +20,8 @@ namespace Tp6Maui.ViewModels
         [ObservableProperty]
         bool isRefreshing;
 
+        int Paginas;
+
         [ObservableProperty]
         Producto productoseleccionado;
 
@@ -38,18 +40,17 @@ namespace Tp6Maui.ViewModels
             {
                 try
                 {
+                    Paginas++;
+
                     IsBusy = true;
-
-                    var LProductos= await _ProductoServices.GetProductosAsync();
+                    var LProductos = await _ProductoServices.GetProductosAsync(Paginas);
                     if (LProductos != null) {
-                        if (productos.Count != 0)
-                        {
-                            productos.Clear();
-
-                        }
+                        
                         foreach (Producto producto in LProductos) productos.Add(producto);
 
                     }
+                    else
+                    
                     IsBusy = false;
                 }
                 catch (Exception ex)
@@ -62,6 +63,46 @@ namespace Tp6Maui.ViewModels
                     IsBusy=false;
                 }
             }
+        }
+        [RelayCommand]
+        public async Task RefrescarProductos()
+        {
+            if (!IsBusy)
+            {
+                try
+                {
+                    Paginas = 1;
+                    IsBusy = true;
+                    var LProductos = await _ProductoServices.GetProductosAsync(Paginas);
+                    if (LProductos != null)
+                    {
+                        if (productos.Count != 0)
+                        {
+                            productos.Clear();
+
+                        }
+                        foreach (Producto producto in LProductos) productos.Add(producto);
+
+                    }
+                    else
+
+                        IsBusy = false;
+                }
+                catch (Exception ex)
+                {
+
+                    await App.Current.MainPage.DisplayAlert("Error!", ex.Message, "Ok");
+                }
+                finally
+                {
+                    IsBusy = false;
+                }
+            }
+        }
+        [RelayCommand]
+        public async Task GoToUsuarioPerfil()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new PerfilPage());
         }
 
         [RelayCommand]

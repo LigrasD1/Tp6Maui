@@ -10,7 +10,7 @@ namespace Tp6Maui.Services
 {
     public interface IProductoServices
     {
-        public Task<IEnumerable<Producto>> GetProductosAsync();
+        public Task<IEnumerable<Producto>> GetProductosAsync(int paginas);
         public Task<Producto> PostProductosAsync(ProductoDTO producto);
         public Task<Producto> PutProductosAsync(int ProductoId, ProductoDTO producto);
         public Task<Producto> SearchByIdAsync(int id);

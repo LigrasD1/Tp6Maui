@@ -27,9 +27,9 @@ namespace Tp6Maui.Services
             client.BaseAddress = new Uri(Constants.ApiDataServer);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
-        public async Task<IEnumerable<Producto>> GetProductosAsync()
+        public async Task<IEnumerable<Producto>> GetProductosAsync(int paginas)
         {
-           var response= await client.GetAsync(Constants.ProductsEndpoint);
+           var response= await client.GetAsync($"{Constants.ProductsEndpoint}?page={paginas}&pageSize={7}");
             if (response.IsSuccessStatusCode)
             {
                 return await response.Content.ReadFromJsonAsync<IEnumerable<Producto>>(options);

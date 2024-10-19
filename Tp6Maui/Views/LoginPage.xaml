@@ -7,72 +7,88 @@
              x:DataType="viewmodel:LoginViewModel"
              Title="LoginPage">
 
-    <VerticalStackLayout>
-        <Label
-            Text="{Binding Title}"
-            TextColor="White"
+    <VerticalStackLayout WidthRequest="300" HeightRequest="500" HorizontalOptions="Center" VerticalOptions="Center">
+        
+        <Border >
+            
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="30,30,30,30"/>
+            </Border.StrokeShape>
+            
+            <VerticalStackLayout>
+             
+                <Label
+            Text="Acceder"
+            TextColor="black"
             HorizontalOptions="Center"
-            FontSize="40"
+            FontSize="25"
             FontAttributes="Bold"
             />
 
-        <Entry
+                <Entry
             Text="{Binding Email}"
             Keyboard="Text"
-            TextColor="#f0f0ff"
+            TextColor="Black"
             Placeholder="Nombre de usuario"
             HorizontalOptions="Center"
             WidthRequest="250"
             Margin="0,25,0,25"
             />
-        <Entry
+                <Entry
             Text="{Binding Password}"
             Keyboard="Text"
             IsPassword="True"
-            TextColor="#f0f0ff"
+            TextColor="Black"
             Placeholder="Contraseña"
             HorizontalOptions="Center"
             WidthRequest="250"
             Margin="0,25,0,25"
             />
 
-        <Grid ColumnDefinitions="*,*" ColumnSpacing="50" RowDefinitions="*,*">
-            <Button
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="50" RowDefinitions="*,*">
+                    <Button
                 Grid.Column="0"
                 Grid.Row="0"
                 Text="Iniciar"
-                TextColor="#f0f0ff"
+                TextColor="White"
                 BackgroundColor="#9146ff"
                 Command="{Binding LoginCommand}"
                 HorizontalOptions="End"
                 VerticalOptions="Center"
                 Margin="0,25,0,0"
 />
-            <Button Grid.Row="0" Grid.Column="1"
-                    TextColor="#f0f0ff"
+                    <Button Grid.Row="0" Grid.Column="1"
+                    TextColor="White"
                     Text="Cerrar"
                     BackgroundColor="#9146ff"
                     HorizontalOptions="Start" VerticalOptions="End"
                     Command="{Binding CerrarCommand}">
 
-            </Button>
-            <VerticalStackLayout Grid.Row="1"
-                                Grid.Column="1"
+                    </Button>
+                    <VerticalStackLayout Grid.Row="1"
+                                         Grid.ColumnSpan="2"
                                  Margin="0,50,0,0">
-                <Label
+                        <Label
                          Text="No tienes una cuenta ?&#10;Registrate aqui"
-                         TextColor="#f0f0ff"
+                         TextColor="LightGray"
                          HorizontalOptions="Center"
+                            Margin="0,0,0,10"
+                            
      />
-                <Button
+                        <Button
                         TextColor="#f0f0ff"
                         Text="Registrarse"
                         BackgroundColor="#9146ff"
                         WidthRequest="120"
+                            Margin="0,0,0,20"
                         Command="{Binding GoToRegistrarseCommand}"
                     />
+                    </VerticalStackLayout>
+
+                </Grid>
             </VerticalStackLayout>
-           
-        </Grid>
+            
+        </Border>
+        
     </VerticalStackLayout>
 </ContentPage>

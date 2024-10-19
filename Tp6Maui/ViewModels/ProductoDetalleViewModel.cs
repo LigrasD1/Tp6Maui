@@ -23,6 +23,7 @@ namespace Tp6Maui.ViewModels
             Title = "Detalle del producto";
             _servicio = new ProductoServices();
             if (Transports.IdRol == 2) _Permiso = false;
+            else _Permiso=true;
         }
         [RelayCommand]
         public async Task DeleteProducto()

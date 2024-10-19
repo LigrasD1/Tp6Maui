@@ -18,6 +18,7 @@ namespace Tp6Maui.ViewModels
         {
             Title = "Mercadito";
             if (Transports.IdRol == 2) Permiso = false;
+            else Permiso = true;
         }
 
         [RelayCommand]

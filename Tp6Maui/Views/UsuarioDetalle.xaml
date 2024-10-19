@@ -122,7 +122,7 @@
                 <RoundRectangle CornerRadius="20,20,0,0"/>
             </Border.StrokeShape>
             <Border.Background>
-                <SolidColorBrush Color="#555555"/>
+                <SolidColorBrush Color="White"/>
             </Border.Background>
             <Grid ColumnDefinitions="*,*" Margin="5,0,5,0">
                 <Button
@@ -131,14 +131,14 @@
                     Text="Borrar Usuario"
                     WidthRequest="120"
                     HeightRequest="50"
-                    Background="WhiteSmoke"
+                    Background="Red"
                     Command="{Binding DeleteUsuarioCommand}"
                     />
                 <Button Grid.Column="1"
                     Text="Volver" 
                     WidthRequest="90"
                     HeightRequest="50"
-                    Background="WhiteSmoke"
+                    Background="Gray"
                     Command="{Binding GoBackCommand}"
                     />
             </Grid>

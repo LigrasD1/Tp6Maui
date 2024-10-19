@@ -6,67 +6,115 @@
              xmlns:model="clr-namespace:Tp6Maui.Models"
              x:DataType="viewmodel:ListaProductoViewModel"
              Title="{Binding Title}">
-    <Grid ColumnDefinitions="*,.2*" ColumnSpacing="5" RowDefinitions=".93*,.07*"  >
 
-        <RefreshView Grid.ColumnSpan="2" Command="{Binding ObtenerProductosCommand}" IsRefreshing="{Binding IsRefreshing}" Margin="30,0,30,0">
+    <Grid ColumnDefinitions="*,.2*" ColumnSpacing="5" RowDefinitions="*,.07*"  >
+        
+        <Border Grid.ColumnSpan="2" Margin="10" Grid.Row="0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="30,30,30,30"/>
+            </Border.StrokeShape>
 
-            <CollectionView Grid.Row="0"
-             ItemsSource="{Binding productos}"
-             SelectionMode="Single"
-             SelectedItem="{Binding Productoseleccionado}"
-             SelectionChangedCommand="{Binding GoToDetailCommand}">
-                <CollectionView.EmptyView>
-                    <StackLayout Padding="100">
-                        <Image Source="not_found.jpg" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                    </StackLayout>
-                </CollectionView.EmptyView>
+            <StackLayout>
 
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="model:Producto">
-                        <Grid 
-                 Margin="10" 
-                 ColumnSpacing="10" 
-                 RowSpacing="5" 
-                 RowDefinitions="Auto,*">
-                            <Border StrokeThickness="1">
-                                <Border.StrokeShape>
-                                    <RoundRectangle CornerRadius="20,20,20,20"/>
-                                </Border.StrokeShape>
-                                <Border.Background>
-                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                        <GradientStop Color="#2a2a2a" Offset="0.0" />
-                                        <GradientStop Color="#333333" Offset="0.5" />
+                <Label
+                        Text="Productos recomendados"
+                        Margin="15,5,0,5"
+                    />
+                <RefreshView Grid.ColumnSpan="2" Command="{Binding RefrescarProductosCommand}" IsRefreshing="{Binding IsRefreshing}" Margin="0,0,0,0">
+                    <Grid>
 
-                                        <GradientStop Color="#555555" Offset="1.0" />
-                                    </LinearGradientBrush>
-                                </Border.Background>
-                                <Grid ColumnDefinitions=".3*,.7*">
-                                    <Image
-                                         HorizontalOptions="Start"
-                                         Grid.Column="0"
-                                         Source="{Binding image}"
-                                         WidthRequest="80"
-                                         HeightRequest="80"
-                                         Aspect="AspectFit"/>
-                                    <Label
-                                         Grid.Column="1" 
-                                         Text="{Binding title}"
-                                         VerticalOptions="Center"
-                                         HorizontalOptions="Start"
-                                         TextColor="Blue"/>
-                                </Grid>
-                            </Border>
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </RefreshView>
+                        <CollectionView Grid.Row="1"
+ItemsSource="{Binding productos}"
+SelectionMode="Single"
+SelectedItem="{Binding Productoseleccionado}"
+SelectionChangedCommand="{Binding GoToDetailCommand}">
+                            <CollectionView.EmptyView>
+                                <StackLayout Padding="100">
+                                    <Image Source="not_found.jpg" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </CollectionView.EmptyView>
+
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate x:DataType="model:Producto">
+                                    <Grid 
+    Margin="10" 
+    ColumnSpacing="10" 
+    RowSpacing="5" 
+    RowDefinitions="Auto,*">
+                                        <Border StrokeThickness="1" Margin="10,5,10,5" >
+                                            <Border.Shadow>
+                                                <Shadow Brush="Gray"
+                                                        Offset="2,2"
+                                                        Radius="2"/>
+                                            </Border.Shadow>
+
+                                            <Border.Background>
+                                                <SolidColorBrush Color="White"/>
+                                            </Border.Background>
+                                            <Border.StrokeShape>
+                                                <RoundRectangle CornerRadius="30,30,30,30"/>
+                                            </Border.StrokeShape>
+                                            <Grid ColumnDefinitions=".3*,.7*">
+                                                <Image
+                            HorizontalOptions="Start"
+                            Grid.Column="0"
+                            Source="{Binding image}"
+                            WidthRequest="80"
+                            HeightRequest="80"
+                            Aspect="AspectFit"/>
+
+                                                <VerticalStackLayout
+                                                Grid.Column="1"
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="Start"
+                                                Spacing="4">
+                                                    <Label
+                                                    Text="{Binding title}"
+                                                    HorizontalOptions="Start"
+                                                    TextColor="black"
+                                                    FontAttributes="Bold"/>
+
+                                                    <Label
+                                                    Text="{Binding description}"
+                                                    HorizontalOptions="Start"
+                                                    TextColor="black"/>
+                                                    <HorizontalStackLayout>
+                                                        <Label
+                                                        Text="$"
+                                                        HorizontalOptions="Start"
+                                                        TextColor="Green"/>
+                                                        <Label
+                                                        Text="{Binding price}"
+                                                        HorizontalOptions="Start"
+                                                        TextColor="Green"/>
+                                                    </HorizontalStackLayout>
+                                                </VerticalStackLayout>
+                                            </Grid>
+                                        </Border>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                    </Grid>
+                </RefreshView>
+                <Button HorizontalOptions="FillAndExpand" VerticalOptions="End"
+                        Text="ver mas..."
+                        TextColor="Blue"
+                        BackgroundColor="Transparent"
+                        BorderColor="Transparent"
+                        Command="{Binding ObtenerProductosCommand}"
+                    />
+            </StackLayout>
+
+        </Border>
+
         <Border Grid.Row="2" Grid.ColumnSpan="2">
             <Border.StrokeShape>
                 <RoundRectangle CornerRadius="20,20,0,0"/>
             </Border.StrokeShape>
             <Border.Background>
-                <SolidColorBrush Color="#555555"/>
+                <SolidColorBrush Color="White"/>
             </Border.Background>
             <Grid ColumnDefinitions="*,*" Margin="5,0,5,0">
 
@@ -74,8 +122,8 @@
              Grid.Row="2"
              Text="Volver" 
              WidthRequest="90"
-             HeightRequest="50"
-             Background="WhiteSmoke"
+             Background="Gray"
+             CornerRadius="20"
              Command="{Binding GoBackCommand}"/>
             </Grid>
 
